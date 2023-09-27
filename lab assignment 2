@@ -1,0 +1,119 @@
+//Q.1 Write a C++ program to print “Welcome to NIT Warangal”.
+#import <iostream>
+using namespace std;
+int main(){
+	cout<<"Welcome to NIT Warangal"<<endl;
+	return 0;
+}
+
+//Q.2 The distance between two cities (in kms) is input through the keyboard. Write a program to convert and print this distance in meters, feet, inches and centimeters.
+#import <iostream>
+using namespace std;
+int main(){
+	int distance;
+	cout<<"Enter distance in kms: "<<endl;
+	cin>>distance;
+	cout<<"Meters :"<<distance*1000<<" m"<<endl;
+	cout<<"Feet: "<<distance*3280<<" ft"<<endl;
+	cout<<"Inches: "<<distance*39370<<" inch"<<endl;
+	cout<<"Centimeteres: "<<distance*100000<<" cm"<<endl;
+	return 0;
+}
+
+//Q.3 Enter 4 digit numbers through keyboard. Write a program to obtain the sum of 1st and last digits of this number.
+#include <iostream>
+using namespace std;
+int main(){
+	int num,first,second,third,fourth;
+	cout<<"Enter 4 digit number: ";
+	cin>>num;
+	first = num/1000;
+	num =num%1000;
+	second = num/100;
+	num = num%100;
+	third = num/10;
+	num = num%10;
+	fourth = num/1;
+	num = num/1;
+	cout<<"Sum: "<<first+fourth<<endl;
+	return 0;
+}
+
+//Q.5 Write the program that gets the total expenses. 
+#include <iostream>
+using namespace std;
+int main(){
+	float brand,travel,food,logistics,total;
+	cout<<"Enter branding expenses: "<<endl;
+	cin>>brand;
+	cout<<"Enter travel expenses: "<<endl;
+	cin>>travel;
+	cout<<"Enter food expenses: "<<endl;
+	cin>>food;
+	cout<<"Enter logistics expenses: "<<endl;
+	cin>>logistics;
+	total = brand+travel+food+logistics;
+	cout<<"Total expenses: "<<total<<" Rupees"<<endl;
+	cout<<"Branding expenses percentage: "<<brand/total*100<<"%"<<endl;
+	cout<<"Travel expenses percentage: "<<travel/total*100<<"%"<<endl;
+	cout<<"Food expenses percentage: "<<food/total*100<<"%"<<endl;
+	cout<<"Logistics expenses percentage: "<<logistics/total*100<<"%"<<endl;
+	return 0;
+}
+
+//Q.6 cm to m and km
+#include <iostream>
+using namespace std;
+int main(){
+	float cm,m,km;
+	cout<<"Enter distance in cm: "<<endl;
+	cin>>cm;
+	m=cm/100;
+	km=cm/100000;
+	cout<<m<<" meters"<<endl;
+	cout<<km<<" kilometers"<<endl;
+	return 0;
+}
+
+
+//Q.7 Simple Interest Calculator
+#include <iostream>
+using namespace std;
+int main(){
+	float p,r,t,si;
+	cout<<"Enter principal amount(in rupees): "<<endl;
+	cin>>p;
+	cout<<"Enter interest rate(%): "<<endl;
+	cin>>r;
+	cout<<"Enter time period(in years): "<<endl;
+	cin>>t;
+	si = p*r*t/100;
+	cout<<"Simple Interest: "<<si<<" Rupees"<<endl;
+	return 0;
+}
+
+//Q.8 Marks
+#include <iostream>
+using namespace std;
+int main(){
+	float e,p,c,m,cs,h,total;
+	cout<<"Enter english marks out of 100: "<<endl;
+	cin>>e;
+	cout<<"Enter physics marks out of 100: "<<endl;
+	cin>>p;
+	cout<<"Enter chemistry marks out of 100: "<<endl;
+	cin>>c;
+	cout<<"Enter maths marks out of 100: "<<endl;
+	cin>>m;
+	cout<<"Enter computer science marks out of 100: "<<endl;
+	cin>>cs;
+	cout<<"Enter hindi marks out of 100: "<<endl;
+	cin>>h;
+	total = e+p+c+m+cs+h;
+	cout<<"Aggregate: "<<total/6<<endl;
+	cout<<"Percentage: "<<total/600*100<<"%"<<endl;
+	return 0;
+}
+
+
+
