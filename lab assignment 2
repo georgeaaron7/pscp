@@ -116,4 +116,120 @@ int main(){
 }
 
 
+//Q.9 Lowest no.of notes calculator
+#include <iostream>
+using namespace std;
+int main(){
+    int rs100,rs50,rs10,rs5,rs2,rs1,amt;
+    cout<<"Enter amount: ";
+    cin>>amt;
+
+    rs100 = amt/100;
+    amt = amt%100;
+
+    rs50 = amt/50;
+    amt = amt%50;
+
+    rs10 = amt/10;
+    amt = amt%10;
+
+    rs5 = amt/5;
+    amt = amt%5;
+
+    rs2 = amt/2;
+    amt = amt%2;
+
+    rs1 = amt;  
+
+    if (rs100>0){
+        cout<<"100 rupee notes: "<<rs100<<endl;
+    }
+    
+    if (rs50>0){
+        cout<<"50 rupee notes: "<<rs50<<endl;
+    }
+    
+    if (rs10>0){
+        cout<<"10 rupee notes: "<<rs10<<endl;
+    }
+    
+    if (rs5>0){
+        cout<<"5 rupee notes: "<<rs5<<endl;
+    }
+    
+    if (rs2>0){
+        cout<<"2 rupee notes: "<<rs2<<endl;
+    }
+    
+    if (rs1>0){
+        cout<<"1 rupee notes: "<<rs1<<endl;
+    }
+    
+    return 0;
+}
+
+//Q.11 Leap year conditional operator
+#include <iostream>;
+using namespace std;
+int main(){
+    int year;
+    cout<<"Enter the year: "<<endl;
+    cin>>year;
+    if (year%4==0){
+        cout<<"The year "<<year<<" is a leap year!";
+    }
+    else{
+        cout<<"The year "<<year<<" is not a leap year!";
+    }
+    
+    return 0;
+}
+
+
+
+//Q.13 swapping two numbers
+#include <iostream>
+using namespace std;
+int main(){
+    int num1,first,second;
+    cout<<"Enter a two digit number: ";
+    cin>>num1;
+    first = num1/10;
+    num1 = num1%10;
+    second = num1;
+    cout<<second<<first<<endl;
+    return 0;
+}
+
+
+// Q.14 ASCII Code
+#include <iostream>
+using namespace std;
+int main(){
+    char character;
+    cout<<"Enter character: ";
+    cin>>character;
+    cout<<"ASCII Code is: "<<static_cast<int>(character)<<endl;
+    
+    return 0;
+}
+
+
+//Q.15 Number of people who attended the event over a course of three days
+#include <iostream>
+using namespace std;
+int main(){
+    int x,n,day1,day2,day3;
+    cout<<"Enter total no.of people: ";
+    cin>>n;
+    x=2*n/7;
+    day1 = x;
+    day2 = 2*x;
+    day3 = x/2;
+    cout<<day1<<" people"<<endl;
+    cout<<day2<<" people"<<endl;
+    cout<<day3<<" people"<<endl;
+    return 0;
+}
+
 
