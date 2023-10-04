@@ -2,7 +2,12 @@
 #import <iostream>
 using namespace std;
 int main(){
-	cout<<"Welcome to NIT Warangal"<<endl;
+	cout<<"Question Number: 1"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	cout<<"Welcome to NIT Warangal"<<endl; //Printing the statement
 	return 0;
 }
 
@@ -10,51 +15,90 @@ int main(){
 #import <iostream>
 using namespace std;
 int main(){
-	int distance;
+	cout<<"Question Number: 2"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	int distance; //Initializing variable
 	cout<<"Enter distance in kms: "<<endl;
-	cin>>distance;
+	cin>>distance; //Assigning the value 
 	cout<<"Meters :"<<distance*1000<<" m"<<endl;
 	cout<<"Feet: "<<distance*3280<<" ft"<<endl;
-	cout<<"Inches: "<<distance*39370<<" inch"<<endl;
-	cout<<"Centimeteres: "<<distance*100000<<" cm"<<endl;
+	cout<<"Inches: "<<distance*39370<<" inch"<<endl; 
+	cout<<"Centimeteres: "<<distance*100000<<" cm"<<endl; //Printing the converted values
 	return 0;
 }
 
 //Q.3 Enter 4 digit numbers through keyboard. Write a program to obtain the sum of 1st and last digits of this number.
-#include <iostream>
+#import <iostream>
 using namespace std;
 int main(){
-	int num,first,second,third,fourth;
+	cout<<"Question Number: 3"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	int num,first,second,third,fourth; //Initializing variable
 	cout<<"Enter 4 digit number: ";
-	cin>>num;
-	first = num/1000;
-	num =num%1000;
-	second = num/100;
+	cin>>num; //Assigning value to the variable
+	first = num/1000; //First time we divide the entered value by 1000 to find the first digit
+	num =num%1000; //Modulus function assigns the remainder 3 digit number to the next iteration
+	second = num/100; //Dividing the number by 100 gives us the 2nd digit of the number and so on
 	num = num%100;
 	third = num/10;
 	num = num%10;
 	fourth = num/1;
 	num = num/1;
-	cout<<"Sum: "<<first+fourth<<endl;
+	cout<<"Sum: "<<first+fourth<<endl; //printing the sum of the digits
 	return 0;
 }
 
-//Q.5 Write the program that gets the total expenses. 
-#include <iostream>
+//Q.4 A0 Paper problem 
+#import <iostream>
 using namespace std;
 int main(){
-	float brand,travel,food,logistics,total;
+	cout<<"Question Number: 4"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	int length,breadth,dimension; // intializing variables 
+	length = 1189;
+	breadth = 841;
+	cout<<"A0: 1189 x 841"<<endl;
+	for (int i=1;i<=8;++i){  // for loop for every interation of numbers from a0,a1... a8
+		dimension=length;
+		length=breadth;
+		breadth=dimension/2;
+		cout<<"A"<<i<<": "<<length<<"mm "<<" x "<<breadth<<"mm "<<endl;	// printing the dimensions of the paper
+	}
+	return 0;
+}
+
+
+
+//Q.5 Write the program that gets the total expenses. 
+#import <iostream>
+using namespace std;
+int main(){
+	cout<<"Question Number: 5"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	float brand,travel,food,logistics,total; // intializing the variables
 	cout<<"Enter branding expenses: "<<endl;
-	cin>>brand;
+	cin>>brand;  // assigning the values to the variables 
 	cout<<"Enter travel expenses: "<<endl;
 	cin>>travel;
 	cout<<"Enter food expenses: "<<endl;
 	cin>>food;
 	cout<<"Enter logistics expenses: "<<endl;
 	cin>>logistics;
-	total = brand+travel+food+logistics;
-	cout<<"Total expenses: "<<total<<" Rupees"<<endl;
-	cout<<"Branding expenses percentage: "<<brand/total*100<<"%"<<endl;
+	total = brand+travel+food+logistics; // find the sum of the expenses 
+	cout<<"Total expenses: "<<total<<" Rupees"<<endl;  
+	cout<<"Branding expenses percentage: "<<brand/total*100<<"%"<<endl;  //finding and printing the percentage of total expenditure
 	cout<<"Travel expenses percentage: "<<travel/total*100<<"%"<<endl;
 	cout<<"Food expenses percentage: "<<food/total*100<<"%"<<endl;
 	cout<<"Logistics expenses percentage: "<<logistics/total*100<<"%"<<endl;
@@ -62,14 +106,19 @@ int main(){
 }
 
 //Q.6 cm to m and km
-#include <iostream>
+#import <iostream>
 using namespace std;
 int main(){
-	float cm,m,km;
+	cout<<"Question Number: 6"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	float cm,m,km; //intialising the variables 
 	cout<<"Enter distance in cm: "<<endl;
-	cin>>cm;
+	cin>>cm; 
 	m=cm/100;
-	km=cm/100000;
+	km=cm/100000; //converting cm to m and km
 	cout<<m<<" meters"<<endl;
 	cout<<km<<" kilometers"<<endl;
 	return 0;
@@ -77,10 +126,15 @@ int main(){
 
 
 //Q.7 Simple Interest Calculator
-#include <iostream>
+#import <iostream>
 using namespace std;
 int main(){
-	float p,r,t,si;
+	cout<<"Question Number: 7"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	float p,r,t,si;  //intialising variables 
 	cout<<"Enter principal amount(in rupees): "<<endl;
 	cin>>p;
 	cout<<"Enter interest rate(%): "<<endl;
@@ -93,9 +147,14 @@ int main(){
 }
 
 //Q.8 Marks
-#include <iostream>
+#import <iostream>
 using namespace std;
-int main(){
+int main(){	
+	cout<<"Question Number: 8"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
 	float e,p,c,m,cs,h,total;
 	cout<<"Enter english marks out of 100: "<<endl;
 	cin>>e;
@@ -117,10 +176,15 @@ int main(){
 
 
 //Q.9 Lowest no.of notes calculator
-#include <iostream>
+#import <iostream>
 using namespace std;
 int main(){
-    int rs100,rs50,rs10,rs5,rs2,rs1,amt;
+	cout<<"Question Number: 9"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+    int rs100,rs50,rs10,rs5,rs2,rs1,amt,totaln;
     cout<<"Enter amount: ";
     cin>>amt;
 
@@ -140,38 +204,70 @@ int main(){
     amt = amt%2;
 
     rs1 = amt;  
-
     if (rs100>0){
         cout<<"100 rupee notes: "<<rs100<<endl;
-    }
-    
+    } 
     if (rs50>0){
         cout<<"50 rupee notes: "<<rs50<<endl;
-    }
-    
+    } 
     if (rs10>0){
         cout<<"10 rupee notes: "<<rs10<<endl;
-    }
-    
+    }    
     if (rs5>0){
         cout<<"5 rupee notes: "<<rs5<<endl;
-    }
-    
+    }    
     if (rs2>0){
         cout<<"2 rupee notes: "<<rs2<<endl;
-    }
-    
+    }    
     if (rs1>0){
         cout<<"1 rupee notes: "<<rs1<<endl;
     }
-    
+    totaln = rs100 + rs50 + rs10 + rs5 + rs2 + rs1;
+    cout<<"Total number of notes: "<<totaln<<endl;
     return 0;
 }
 
-//Q.11 Leap year conditional operator
-#include <iostream>;
+//Q.10 Monkey Problem
+#import <iostream>
 using namespace std;
 int main(){
+	cout<<"Question Number: 10"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	int x,y,z;
+	cout<<"Enter height of the pole (in meters): "<<endl;
+	cin>>z;
+	cout<<"Enter speed at which the monkey is climbing (in meter per min): "<<endl;
+	cin>>x;
+	cout<<"Enter distance which the monkey slips (in meters): "<<endl;
+	cin>>y;
+	
+	double time = 0.0;
+	int presentheight = 0;
+	
+	while (presentheight < z){
+		time += 1;
+		presentheight = presentheight + x;
+		if (presentheight >= z){
+			break;
+		}
+	time += 1;
+	presentheight = presentheight - y;
+	}
+	cout<<"The monkey reaches the top in "<<time<<" minutes."<<endl;
+}
+
+//Q.11 Leap year conditional operator
+#import <iostream>;
+using namespace std;
+int main(){
+	cout<<"Question Number: 11"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
     int year;
     cout<<"Enter the year: "<<endl;
     cin>>year;
@@ -185,12 +281,38 @@ int main(){
     return 0;
 }
 
+//Q.12 Swapping numbers using bitwise operator
+#import <iostream>
+using namespace std;
+int main(){
+	cout<<"Question Number: 12"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	int n1,n2;
+	cout<<"Enter first number: "<<endl;
+	cin>>n1;
+	cout<<"Enter second number: "<<endl;
+	cin>>n2;
+	cout<<"Number entered: "<<n1<<n2<<endl;
+	n1 = n1^n2;
+	n2 = n1^n2;
+	n1 = n1^n2;
+	cout<<"Swapped number: "<<n1<<n2<<endl;
+	return 0;
+}
 
 
 //Q.13 swapping two numbers
-#include <iostream>
+#import <iostream>
 using namespace std;
 int main(){
+	cout<<"Question Number: 13"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
     int num1,first,second;
     cout<<"Enter a two digit number: ";
     cin>>num1;
@@ -203,9 +325,14 @@ int main(){
 
 
 // Q.14 ASCII Code
-#include <iostream>
+#import <iostream>
 using namespace std;
 int main(){
+	cout<<"Question Number: 14"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
     char character;
     cout<<"Enter character: ";
     cin>>character;
@@ -216,9 +343,14 @@ int main(){
 
 
 //Q.15 Number of people who attended the event over a course of three days
-#include <iostream>
+#import <iostream>
 using namespace std;
 int main(){
+	cout<<"Question Number: 15"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
     int x,n,day1,day2,day3;
     cout<<"Enter total no.of people: ";
     cin>>n;
@@ -232,4 +364,26 @@ int main(){
     return 0;
 }
 
+
+//Q.16 Polynomial solutions from x = 0 to x = 10
+#import <iostream>
+#import <cmath>
+using namespace std;
+int main(){
+	cout<<"Question Number: 16
+"<<endl;
+	cout<<"Name : Aaron George"<<endl;
+	cout<<"Roll No: 23ECB0F06"<<endl;
+	cout<<"______________________________________________________"<<endl;
+	cout<<" "<<endl;
+	double a= 5.142;
+	double b= -0.897;
+	double c= 3.145;
+	double d= -7.250;
+	for (int x=0;x<=10;x++){
+		double y = a*pow(x,3) + b*pow(x,2) + c*x + d;
+		cout<<"Y("<<x<<")="<<y<<endl;
+	} 
+	return 0;
+}
 
