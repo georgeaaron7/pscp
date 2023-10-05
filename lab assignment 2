@@ -155,7 +155,7 @@ int main(){
 	cout<<"Roll No: 23ECB0F06"<<endl;
 	cout<<"______________________________________________________"<<endl;
 	cout<<" "<<endl;
-	float e,p,c,m,cs,h,total;
+	float e,p,c,m,cs,h,total;  //creating the variables for storing the values
 	cout<<"Enter english marks out of 100: "<<endl;
 	cin>>e;
 	cout<<"Enter physics marks out of 100: "<<endl;
@@ -167,9 +167,9 @@ int main(){
 	cout<<"Enter computer science marks out of 100: "<<endl;
 	cin>>cs;
 	cout<<"Enter hindi marks out of 100: "<<endl;
-	cin>>h;
+	cin>>h;  //assigning values to the variables
 	total = e+p+c+m+cs+h;
-	cout<<"Aggregate: "<<total/6<<endl;
+	cout<<"Aggregate: "<<total/6<<endl; //using the simple formula for total and average we get the results
 	cout<<"Percentage: "<<total/600*100<<"%"<<endl;
 	return 0;
 }
@@ -184,12 +184,12 @@ int main(){
 	cout<<"Roll No: 23ECB0F06"<<endl;
 	cout<<"______________________________________________________"<<endl;
 	cout<<" "<<endl;
-    int rs100,rs50,rs10,rs5,rs2,rs1,amt,totaln;
+    int rs100,rs50,rs10,rs5,rs2,rs1,amt,totaln; //creation of variables for storing the various notes number
     cout<<"Enter amount: ";
-    cin>>amt;
+    cin>>amt; 
 
-    rs100 = amt/100;
-    amt = amt%100;
+    rs100 = amt/100; //this gives us the number of 100 rupee notes that will be needed
+    amt = amt%100; //if the amount divided by 0 then the process ends and the next one doesn't run
 
     rs50 = amt/50;
     amt = amt%50;
@@ -204,25 +204,8 @@ int main(){
     amt = amt%2;
 
     rs1 = amt;  
-    if (rs100>0){
-        cout<<"100 rupee notes: "<<rs100<<endl;
-    } 
-    if (rs50>0){
-        cout<<"50 rupee notes: "<<rs50<<endl;
-    } 
-    if (rs10>0){
-        cout<<"10 rupee notes: "<<rs10<<endl;
-    }    
-    if (rs5>0){
-        cout<<"5 rupee notes: "<<rs5<<endl;
-    }    
-    if (rs2>0){
-        cout<<"2 rupee notes: "<<rs2<<endl;
-    }    
-    if (rs1>0){
-        cout<<"1 rupee notes: "<<rs1<<endl;
-    }
-    totaln = rs100 + rs50 + rs10 + rs5 + rs2 + rs1;
+    
+    totaln = rs100 + rs50 + rs10 + rs5 + rs2 + rs1; //finding sum of total notes
     cout<<"Total number of notes: "<<totaln<<endl;
     return 0;
 }
@@ -237,30 +220,30 @@ int main(){
 	cout<<"______________________________________________________"<<endl;
 	cout<<" "<<endl;
 	int x,y,z;
-	cout<<"Enter height of the pole (in meters): "<<endl;
+	cout<<"Enter height of the pole (in meters): "<<endl; //creating of variables and storing its value
 	cin>>z;
 	cout<<"Enter speed at which the monkey is climbing (in meter per min): "<<endl;
 	cin>>x;
 	cout<<"Enter distance which the monkey slips (in meters): "<<endl;
 	cin>>y;
 	
-	double time = 0.0;
-	int presentheight = 0;
+	double time = 0.0; //creating a double variable time
+	int presentheight = 0; //creating an interger variable presentheight
 	
-	while (presentheight < z){
+	while (presentheight < z){ //while the present height is less than z, the time is increased by one min per climb
 		time += 1;
 		presentheight = presentheight + x;
 		if (presentheight >= z){
 			break;
 		}
 	time += 1;
-	presentheight = presentheight - y;
+	presentheight = presentheight - y; //this for the distance that the monkey slips after one min of rest
 	}
 	cout<<"The monkey reaches the top in "<<time<<" minutes."<<endl;
 }
 
 //Q.11 Leap year conditional operator
-#import <iostream>;
+#import <iostream>
 using namespace std;
 int main(){
 	cout<<"Question Number: 11"<<endl;
@@ -269,7 +252,7 @@ int main(){
 	cout<<"______________________________________________________"<<endl;
 	cout<<" "<<endl;
     int year;
-    cout<<"Enter the year: "<<endl;
+    cout<<"Enter the year: "<<endl; //for leap year, it must be divisble by 4
     cin>>year;
     if (year%4==0){
         cout<<"The year "<<year<<" is a leap year!";
@@ -277,7 +260,6 @@ int main(){
     else{
         cout<<"The year "<<year<<" is not a leap year!";
     }
-    
     return 0;
 }
 
@@ -291,12 +273,12 @@ int main(){
 	cout<<"______________________________________________________"<<endl;
 	cout<<" "<<endl;
 	int n1,n2;
-	cout<<"Enter first number: "<<endl;
+	cout<<"Enter first number: "<<endl; //creating variable and storing the data 
 	cin>>n1;
 	cout<<"Enter second number: "<<endl;
 	cin>>n2;
 	cout<<"Number entered: "<<n1<<n2<<endl;
-	n1 = n1^n2;
+	n1 = n1^n2;  //bitwise operation
 	n2 = n1^n2;
 	n1 = n1^n2;
 	cout<<"Swapped number: "<<n1<<n2<<endl;
@@ -314,10 +296,10 @@ int main(){
 	cout<<"______________________________________________________"<<endl;
 	cout<<" "<<endl;
     int num1,first,second;
-    cout<<"Enter a two digit number: ";
+    cout<<"Enter a two digit number: "; //storing the data 
     cin>>num1;
-    first = num1/10;
-    num1 = num1%10;
+    first = num1/10; //getting the first digit of the number
+    num1 = num1%10; //getting the second digit of the number 
     second = num1;
     cout<<second<<first<<endl;
     return 0;
@@ -336,7 +318,7 @@ int main(){
     char character;
     cout<<"Enter character: ";
     cin>>character;
-    cout<<"ASCII Code is: "<<static_cast<int>(character)<<endl;
+    cout<<"ASCII Code is: "<<static_cast<int>(character)<<endl; //comverting the charecter to interger
     
     return 0;
 }
@@ -351,10 +333,10 @@ int main(){
 	cout<<"Roll No: 23ECB0F06"<<endl;
 	cout<<"______________________________________________________"<<endl;
 	cout<<" "<<endl;
-    int x,n,day1,day2,day3;
+    int x,n,day1,day2,day3; //creating variable to store the data
     cout<<"Enter total no.of people: ";
-    cin>>n;
-    x=2*n/7;
+    cin>>n; //assigning the data to the variable
+    x=2*n/7; //solving the equation manual gives us this final formula which can be used
     day1 = x;
     day2 = 2*x;
     day3 = x/2;
@@ -376,11 +358,11 @@ int main(){
 	cout<<"Roll No: 23ECB0F06"<<endl;
 	cout<<"______________________________________________________"<<endl;
 	cout<<" "<<endl;
-	double a= 5.142;
+	double a= 5.142; //assigning value to the variables to store the data
 	double b= -0.897;
 	double c= 3.145;
 	double d= -7.250;
-	for (int x=0;x<=10;x++){
+	for (int x=0;x<=10;x++){ //using math function to solve the variable
 		double y = a*pow(x,3) + b*pow(x,2) + c*x + d;
 		cout<<"Y("<<x<<")="<<y<<endl;
 	} 
