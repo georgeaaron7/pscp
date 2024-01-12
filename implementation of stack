@@ -1,0 +1,113 @@
+#include <iostream>
+using namespace std;
+
+class stack {
+public:
+    int capacity;
+    int* arr;
+    int topIndex;
+
+    stack(int c) {
+        capacity = c;
+        arr = new int[c];
+        topIndex = -1;
+    }
+
+    int size() {
+        return topIndex + 1;
+    }
+
+    int push(int data) {
+        if (topIndex == capacity - 1) {
+            cout << "Overflow \n";
+            return -1;
+        }
+        topIndex += 1;
+        arr[topIndex] = data;
+        return data;
+    }
+
+    void pop() {
+        if (topIndex == -1) {
+            cout << "Underflow \n";
+        } else {
+            topIndex -= 1;
+        }
+    }
+
+    bool isEmpty() {
+        return (size() == 0);
+    }
+
+    bool isFull() {
+        return (size() == capacity);
+    }
+
+    int getTop() {
+        if (topIndex == -1) {
+            cout << "Underflow \n";
+            return -1;
+        }
+        return arr[topIndex];
+    }
+};
+
+int main() {
+    int size, num;
+    int userInput = 0;
+    cout << "Enter size of the stack: \n";
+    cin >> size;
+    stack st(size);
+
+    while (userInput != 7) {
+        cout << "Choose one of the following options \n 1. Push \n 2. Pop \n 3. Top \n 4. Count \n 5. isEmpty \n 6. isFull \n 7. Exit\n ";
+        cin >> userInput;
+
+        switch (userInput) {
+            case 1:
+                cout << "Enter value: \n";
+                cin >> num;
+                cout << "Pushed: " << st.push(num) << endl;
+                break;
+
+            case 2:
+                if (st.size() == 0)
+                    cout << "Underflow \n";
+                else {
+                    cout << "Popped: ";
+                    st.pop();
+                    break;
+                }
+
+            case 3:
+                if (st.isEmpty())
+                    cout << "Underflow \n";
+                else {
+                    cout << "Top: " << st.getTop() << endl;
+                    break;
+                }
+
+            case 4:
+                cout << "Count= " << st.size() << endl;
+                break;
+
+            case 5:
+                cout << st.isEmpty() << endl;
+                break;
+
+            case 6:
+                cout << st.isFull() << endl;
+                break;
+
+            case 7:
+                cout << "Exited the program \n";
+                break;
+
+            default:
+                cout << "Invalid option \n";
+                break;
+        }
+    }
+
+    return 0;
+}
