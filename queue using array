@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+
+class Queue {
+private:
+    int* arr;
+    int capacity;
+    int frontIndex;
+    int rearIndex;
+    int countVal;
+
+public:
+    Queue(int size) {
+        capacity = size;
+        arr = new int[capacity];
+        frontIndex = -1;
+        rearIndex = -1;
+        countVal = 0;
+    }
+
+    ~Queue() {
+        delete[] arr;
+    }
+
+    bool isEmpty() {
+        return countVal == 0;
+    }
+
+    bool isFull() {
+        return countVal == capacity;
+    }
+
+    bool enQueue(int value) {
+        if (isFull()) {
+            cout << "Queue is full. Cannot enqueue.\n";
+            return false;
+        } else {
+            if (isEmpty()) {
+                frontIndex = 0;
+            }
+            rearIndex = (rearIndex + 1) % capacity;
+            arr[rearIndex] = value;
+            countVal++;
+            cout << "Enqueued: " << value << endl;
+            return true;
+        }
+    }
+
+    int deQueue() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Cannot dequeue.\n";
+            return -1; // Assuming -1 represents an error value, change it as needed.
+        } else {
+            int value = arr[frontIndex];
+            frontIndex = (frontIndex + 1) % capacity;
+            countVal--;
+            cout << "Dequeued: " << value << endl;
+            return value;
+        }
+    }
+
+    int getCount() {
+        return countVal;
+    }
+};
+
+int main() {
+    int queueSize;
+    cout << "Enter the size of the queue: ";
+    cin >> queueSize;
+
+    Queue myQueue(queueSize);
+
+    int choice;
+    do {
+        cout << "\nQueue Operations Menu:\n";
+        cout << "1. Enqueue\n";
+        cout << "2. Dequeue\n";
+        cout << "3. Check if Queue is Full\n";
+        cout << "4. Check if Queue is Empty\n";
+        cout << "5. Get Queue Count\n";
+        cout << "0. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int value;
+                cout << "Enter the value to enqueue: ";
+                cin >> value;
+                myQueue.enQueue(value);
+                break;
+            }
+            case 2:
+                myQueue.deQueue();
+                break;
+            case 3:
+                cout << "Queue is " << (myQueue.isFull() ? "full" : "not full") << endl;
+                break;
+            case 4:
+                cout << "Queue is " << (myQueue.isEmpty() ? "empty" : "not empty") << endl;
+                break;
+            case 5:
+                cout << "Queue count: " << myQueue.getCount() << endl;
+                break;
+            case 0:
+                cout << "Exiting program.\n";
+                break;
+            default:
+                cout << "Invalid choice. Please enter a valid option.\n";
+        }
+
+    } while (choice != 0);
+
+    return 0;
+}
