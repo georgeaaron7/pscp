@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+class Stack {
+public:
+    char* arr;
+    int capacity;
+    int topIndex;
+
+    Stack(int size) {
+        capacity = size;
+        arr = new char[size];
+        topIndex = -1;
+    }
+
+    ~Stack() {
+        delete[] arr;
+    }
+
+    bool isFull() {
+        return topIndex == capacity - 1;
+    }
+
+    bool isEmpty() {
+        return topIndex == -1;
+    }
+
+    bool push(char bracket) {
+        if (isFull()) return false;
+        else {
+            topIndex++;
+            arr[topIndex] = bracket;
+            return true;
+        }
+    }
+
+    bool pop() {
+        if (isEmpty()) return false;
+        else {
+            topIndex--;
+            return true;
+        }
+    }
+
+    char getTop() {
+        if (isEmpty()) return '\0';  // Return null character or any suitable value to indicate an empty stack
+        return arr[topIndex];
+    }
+};
+
+bool isValidParentheses(const char* sequence) {
+    int length = 0;
+    while (sequence[length] != '\0') {
+        length++;
+    }
+
+    Stack stack(length);
+
+    for (int i = 0; i < length; ++i) {
+        char currentBracket = sequence[i];
+
+        if (currentBracket == '(' || currentBracket == '{' || currentBracket == '[') {
+            stack.push(currentBracket);
+        } else if (currentBracket == ')' || currentBracket == '}' || currentBracket == ']') {
+            if (stack.isEmpty() || (currentBracket == ')' && stack.getTop() != '(') ||
+                (currentBracket == '}' && stack.getTop() != '{') ||
+                (currentBracket == ']' && stack.getTop() != '[')) {
+                return false;  // Mismatched closing bracket or empty stack
+            } else {
+                stack.pop();
+            }
+        }
+    }
+
+    return stack.isEmpty();  // Stack should be empty for a balanced sequence
+}
+
+int main() {
+    const int maxLength = 100;
+    char inputSequence[maxLength];
+
+    cout << "Enter a sequence of parentheses: ";
+    cin.getline(inputSequence, maxLength);
+
+    if (isValidParentheses(inputSequence)) {
+        cout << "The parentheses are balanced.\n";
+    } else {
+        cout << "The parentheses are not balanced.\n";
+    }
+
+    return 0;
+}
