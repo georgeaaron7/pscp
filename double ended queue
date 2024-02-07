@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+
+class Deque {
+private:
+    int* arr;
+    int capacity;
+    int frontIndex;
+    int rearIndex;
+    int countVal;
+
+public:
+    Deque(int size) {
+        capacity = size;
+        arr = new int[capacity];
+        frontIndex = -1;
+        rearIndex = -1;
+        countVal = 0;
+    }
+
+    ~Deque() {
+        delete[] arr;
+    }
+
+    bool isEmpty() {
+        return countVal == 0;
+    }
+
+    bool isFull() {
+        return countVal == capacity;
+    }
+
+    void enQueueRear(int value) {
+        if (isFull()) {
+            cout << "Queue is full. Cannot enqueue at the rear.\n";
+        } else {
+            if (isEmpty()) {
+                frontIndex = 0;
+                rearIndex = 0;
+            } else {
+                rearIndex = (rearIndex + 1) % capacity;
+            }
+
+            arr[rearIndex] = value;
+            countVal++;
+        }
+    }
+
+    void enQueueFront(int value) {
+        if (isFull()) {
+            cout << "Queue is full. Cannot enqueue at the front.\n";
+        } else {
+            if (isEmpty()) {
+                frontIndex = 0;
+                rearIndex = 0;
+            } else {
+                frontIndex = (frontIndex - 1 + capacity) % capacity;
+            }
+
+            arr[frontIndex] = value;
+            countVal++;
+        }
+    }
+
+    void deQueueFront() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Cannot dequeue from the front.\n";
+        } else {
+            frontIndex = (frontIndex + 1) % capacity;
+            countVal--;
+        }
+    }
+
+    void deQueueRear() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Cannot dequeue from the rear.\n";
+        } else {
+            rearIndex = (rearIndex - 1 + capacity) % capacity;
+            countVal--;
+        }
+    }
+};
+
+int main() {
+    Deque deque(5);
+
+    deque.enQueueRear(1);
+    deque.enQueueFront(2);
+    deque.enQueueRear(3);
+
+    cout << "Deque: ";
+    while (!deque.isEmpty()) {
+        cout << deque.arr[deque.frontIndex] << " ";
+        deque.deQueueFront();
+    }
+
+    return 0;
+}
