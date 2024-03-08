@@ -1,0 +1,107 @@
+#include <iostream>
+using namespace std;
+
+class node{
+    public:
+    int val;
+    node* next;
+    
+    node(int data){
+        val = data;
+        next=nullptr;
+    }
+};
+
+class sll{
+    public:
+    
+    int countVal;
+    void insertAtHead (node* &head, int val){
+        node* newNode = new node(val);
+        newNode -> next = head;
+        head = newNode;
+        countVal++;
+    }
+    
+    void insertAtEnd(node* &head, int val){
+        node* newNode = new node(val);
+        node* temp = head;
+        while(temp->next != nullptr){
+            temp = temp -> next;
+        }
+        temp -> next = newNode;
+        countVal++;
+    }
+    
+    void insertAtPos(node* head, int val, int pos){
+        if (pos==0){
+            insertAtHead(head,val);
+                return;
+        }
+        
+        else if(pos > 0){
+            node* newNode = new node(val);
+            node* temp = head;
+            int currentPos = 0;
+            while(currentPos != pos-1){
+                temp = temp -> next;
+                currentPos++;
+            }
+            
+            newNode -> next = temp -> next;
+            temp -> next = newNode;
+            countVal++;
+        }
+    }
+    
+    void deleteBegin(node* &head){
+        if (countVal == 0) return;
+        else{
+            node* temp = head;
+            head = temp->next;
+            delete temp;
+            countVal--;
+        }
+    }
+    
+    void deleteEnd(node* &head){
+        if (countVal == 0) return;
+        else{
+            node* secondLast = head;
+            while(secondLast -> next -> next != nullptr){
+                secondLast = secondLast -> next;
+            }
+            node* temp = secondLast-> next;
+            secondLast -> next = nullptr;
+            free(temp);
+            countVal--;
+        }
+    }
+    
+    int getCount(){
+        return countVal;
+    }
+    
+    void display(node* &head){
+        node* temp = head;
+        while(temp!=nullptr){
+            cout<<temp->val<<" -> ";
+            temp = temp -> next;
+        }
+        cout<<"NULL \n";
+    }
+};
+int main(){
+    sll linked_list;
+    node* head = nullptr;
+    linked_list.insertAtHead(head,2);
+    linked_list.insertAtHead(head,4);
+    linked_list.insertAtHead(head,6);
+    linked_list.insertAtEnd(head,5);
+    linked_list.insertAtPos(head,0,2);
+    linked_list.deleteBegin(head);
+    linked_list.deleteEnd(head);
+    linked_list.display(head);
+    cout<<linked_list.getCount()<<" \n";
+    
+}
