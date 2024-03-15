@@ -1,0 +1,236 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int key;
+    Node* left;
+    Node* right;
+    int height;
+};
+
+Node* insert(Node* node, int key);
+Node* deleteNode(Node* root, int key);
+Node* search(Node* root, int key);
+int height(Node* node);
+int max(int a, int b);
+Node* newNode(int key);
+Node* rightRotate(Node* y);
+Node* leftRotate(Node* x);
+int getBalance(Node* node);
+void inorder(Node* root);
+
+// Function to create a new node with a given key
+Node* newNode(int key) {
+    Node* node = new Node;
+    node->key = key;
+    node->left = 0;
+    node->right = 0;
+    node->height = 1;
+
+    return node;
+}
+
+// Function to insert a key into the AVL tree
+Node* insert(Node* node, int key) {
+    if (node == 0)
+        return newNode(key);
+
+    if (key < node->key)
+        node->left = insert(node->left, key);
+    else if (key > node->key)
+        node->right = insert(node->right, key);
+
+    node->height = 1 + max(height(node->left), height(node->right));
+
+    int balance = getBalance(node);
+
+    if (balance > 1 && key < node->left->key)
+        return rightRotate(node);
+
+    if (balance < -1 && key > node->right->key)
+        return leftRotate(node);
+
+    if (balance > 1 && key > node->left->key) {
+        node->left = leftRotate(node->left);
+        return rightRotate(node);
+    }
+
+    if (balance < -1 && key < node->right->key) {
+        node->right = rightRotate(node->right);
+        return leftRotate(node);
+    }
+
+    return node;
+}
+
+// Function to delete a key from the AVL tree
+Node* deleteNode(Node* root, int key) {
+    if (root == 0)
+        return root;
+
+    if (key < root->key)
+        root->left = deleteNode(root->left, key);
+    else if (key > root->key)
+        root->right = deleteNode(root->right, key);
+    else {
+        if (root->left == 0 || root->right == 0) {
+            Node* temp = root->left ? root->left : root->right;
+            if (temp == 0) {
+                temp = root;
+                root = 0;
+            } else
+                *root = *temp;
+            delete temp;
+        } else {
+            Node* temp = root->right;
+            while (temp->left != 0)
+                temp = temp->left;
+            root->key = temp->key;
+            root->right = deleteNode(root->right, temp->key);
+        }
+    }
+
+    if (root == 0)
+        return root;
+
+    root->height = 1 + max(height(root->left), height(root->right));
+
+    int balance = getBalance(root);
+
+    if (balance > 1 && getBalance(root->left) >= 0)
+        return rightRotate(root);
+
+    if (balance < -1 && getBalance(root->right) <= 0)
+        return leftRotate(root);
+
+    if (balance > 1 && getBalance(root->left) < 0) {
+        root->left = leftRotate(root->left);
+        return rightRotate(root);
+    }
+
+    if (balance < -1 && getBalance(root->right) > 0) {
+        root->right = rightRotate(root->right);
+        return leftRotate(root);
+    }
+
+    return root;
+}
+
+Node* search(Node* root, int key) {
+    if (root == 0 || root->key == key)
+        return root;
+
+    if (key < root->key)
+        return search(root->left, key);
+
+    return search(root->right, key);
+}
+
+int height(Node* node) {
+    if (node == 0)
+        return 0;
+
+    return node->height;
+}
+
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+Node* rightRotate(Node* y) {
+    Node* x = y->left;
+    Node* T2 = x->right;
+
+    x->right = y;
+    y->left= T2;
+
+    y->height = max(height(y->left), height(y->right)) + 1;
+    x->height = max(height(x->left), height(x->right)) + 1;
+
+    return x;
+}
+
+Node* leftRotate(Node* x) {
+    Node* y = x->right;
+    Node* T2 = y->left;
+
+    y->left = x;
+    x->right = T2;
+
+    x->height = max(height(x->left), height(x->right)) + 1;
+    y->height = max(height(y->left), height(y->right)) + 1;
+
+    return y;
+}
+
+int getBalance(Node* node) {
+    if (node == 0)
+        return 0;
+
+    return height(node->left) - height(node->right);
+}
+
+void inorder(Node* root) {
+    if (root != 0) {
+        inorder(root->left);
+        cout << root->key << " ";
+        inorder(root->right);
+    }
+}
+
+void displayMenu() {
+    cout << "User Menu:\n";
+    cout << "1. Insert an element\n";
+    cout << "2. Delete an element\n";
+    cout << "3. Search for an element\n";
+    cout << "4. Print AVL Tree\n";
+    cout << "5. Exit\n";
+}
+
+
+int main() {
+    Node* root = 0;
+    int choice, key;
+
+    do {
+        displayMenu();
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter the key to insert: ";
+                cin >> key;
+                root = insert(root, key);
+                cout << "Element inserted successfully.\n";
+                break;
+            case 2:
+                cout << "Enter the key to delete: ";
+                cin >> key;
+                root = deleteNode(root, key);
+                cout << "Element deleted successfully.\n";
+                break;
+            case 3:
+                cout << "Enter the key to search: ";
+                cin >> key;
+if (search(root, key))
+                    cout << "Key " << key << " found in the AVL tree.\n";
+                else
+                    cout << "Key " << key << " not found in the AVL tree.\n";
+                break;
+            case 4:
+                cout << "AVL Tree:\n";
+                inorder(root);
+                cout << "\n";
+                break;
+            case 5:
+                cout << "Exiting the program.\n";
+                break;
+            default:
+                cout << "Invalid choice! Please enter a valid option.\n";
+                break;
+        }
+    } while (choice != 5);
+
+    return 0;
+}
